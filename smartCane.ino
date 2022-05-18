@@ -67,32 +67,16 @@ void loop() {
     
 //  } 
 
-  if (distance_in <= 5) {
-    Serial.print(" 5 or below ");
-    digitalWrite(RELAY_PIN, LOW);
-    digitalWrite(RELAY_PIN1, HIGH);
-    digitalWrite(RELAY_PIN2, HIGH);
-    digitalWrite(RELAY_PIN3, HIGH);
-  }
 
-  else if (distance_in <= 9) {
-    Serial.print(" <= 9 ");
-    digitalWrite(RELAY_PIN, LOW);
+  if (distance_in <= 36) {
+    digitalWrite(RELAY_PIN, LOW); //turns pin on
     digitalWrite(RELAY_PIN1, LOW);
-    digitalWrite(RELAY_PIN2, HIGH);
+    digitalWrite(RELAY_PIN2, HIGH); //turns pin off
     digitalWrite(RELAY_PIN3, HIGH);
+
   }
 
-  else if (distance_in <= 11) {
-    Serial.print(" <= 11 ");
-    digitalWrite(RELAY_PIN, LOW);
-    digitalWrite(RELAY_PIN1, LOW);
-    digitalWrite(RELAY_PIN2, LOW);
-    digitalWrite(RELAY_PIN3, HIGH);
-  }
-
-  else if (distance_in <= 30) {
-    Serial.print(" <= 30 ");
+  else if (distance_in <= 72) {
     digitalWrite(RELAY_PIN, LOW);
     digitalWrite(RELAY_PIN1, LOW);
     digitalWrite(RELAY_PIN2, LOW);
@@ -100,7 +84,6 @@ void loop() {
   }
  
   else {
-    Serial.print(" GET CLOSER ");
     digitalWrite(RELAY_PIN, HIGH);
     digitalWrite(RELAY_PIN1, HIGH);
     digitalWrite(RELAY_PIN2, HIGH);
