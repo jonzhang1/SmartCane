@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 /*
 Author: Krushil Amrutiya
 Dec 31, 2021
@@ -67,40 +69,22 @@ void loop() {
     
 //  } 
 
-  if (distance_in <= 5) {
-    Serial.print(" 5 or below ");
-    digitalWrite(RELAY_PIN, LOW);
-    digitalWrite(RELAY_PIN1, HIGH);
-    digitalWrite(RELAY_PIN2, HIGH);
-    digitalWrite(RELAY_PIN3, HIGH);
-  }
-
-  else if (distance_in <= 9) {
-    Serial.print(" <= 9 ");
-    digitalWrite(RELAY_PIN, LOW);
-    digitalWrite(RELAY_PIN1, LOW);
-    digitalWrite(RELAY_PIN2, HIGH);
-    digitalWrite(RELAY_PIN3, HIGH);
-  }
-
-  else if (distance_in <= 11) {
-    Serial.print(" <= 11 ");
-    digitalWrite(RELAY_PIN, LOW);
-    digitalWrite(RELAY_PIN1, LOW);
-    digitalWrite(RELAY_PIN2, LOW);
-    digitalWrite(RELAY_PIN3, HIGH);
-  }
-
-  else if (distance_in <= 30) {
-    Serial.print(" <= 30 ");
+  if (distance_in <= 20) { //1 feet 8 inches
     digitalWrite(RELAY_PIN, LOW);
     digitalWrite(RELAY_PIN1, LOW);
     digitalWrite(RELAY_PIN2, LOW);
     digitalWrite(RELAY_PIN3, LOW);
+ 
+  }
+
+  else if (distance_in <= 36) { //3 feet
+    digitalWrite(RELAY_PIN, LOW);
+    digitalWrite(RELAY_PIN1, LOW);
+    digitalWrite(RELAY_PIN2, HIGH);
+    digitalWrite(RELAY_PIN3, HIGH);
   }
  
   else {
-    Serial.print(" GET CLOSER ");
     digitalWrite(RELAY_PIN, HIGH);
     digitalWrite(RELAY_PIN1, HIGH);
     digitalWrite(RELAY_PIN2, HIGH);
@@ -108,5 +92,5 @@ void loop() {
   }
 
   
-  delay(250); //pause to let things settle
+  delay(200); //pause to let things settle
 }
